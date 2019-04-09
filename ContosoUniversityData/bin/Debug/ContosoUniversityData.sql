@@ -40,16 +40,49 @@ USE [$(DatabaseName)];
 
 
 GO
-PRINT N'Creating [dbo].[Course]...';
+PRINT N'Creating [dbo].[Enrollment]...';
 
 
 GO
-CREATE TABLE [dbo].[Course] (
-    [CourseID] INT           IDENTITY (1, 1) NOT NULL,
-    [Title]    NVARCHAR (50) NULL,
-    [Credits]  INT           NULL,
-    PRIMARY KEY CLUSTERED ([CourseID] ASC)
+CREATE TABLE [dbo].[Enrollment] (
+    [EnrollmentID] INT            IDENTITY (1, 1) NOT NULL,
+    [Grade]        DECIMAL (3, 2) NULL,
+    [CourseID]     INT            NOT NULL,
+    [StudentID]    INT            NOT NULL,
+    PRIMARY KEY CLUSTERED ([EnrollmentID] ASC)
 );
+
+
+GO
+PRINT N'Creating [dbo].[FK_dbo.Enrollment_dbo.Course_CourseID]...';
+
+
+GO
+ALTER TABLE [dbo].[Enrollment] WITH NOCHECK
+    ADD CONSTRAINT [FK_dbo.Enrollment_dbo.Course_CourseID] FOREIGN KEY ([CourseID]) REFERENCES [dbo].[Course] ([CourseID]) ON DELETE CASCADE;
+
+
+GO
+PRINT N'Creating [dbo].[FK_dbo.Enrollment_dbo.Student_StudentID]...';
+
+
+GO
+ALTER TABLE [dbo].[Enrollment] WITH NOCHECK
+    ADD CONSTRAINT [FK_dbo.Enrollment_dbo.Student_StudentID] FOREIGN KEY ([StudentID]) REFERENCES [dbo].[Student] ([StudentID]) ON DELETE CASCADE;
+
+
+GO
+PRINT N'Checking existing data against newly created constraints';
+
+
+GO
+USE [$(DatabaseName)];
+
+
+GO
+ALTER TABLE [dbo].[Enrollment] WITH CHECK CHECK CONSTRAINT [FK_dbo.Enrollment_dbo.Course_CourseID];
+
+ALTER TABLE [dbo].[Enrollment] WITH CHECK CHECK CONSTRAINT [FK_dbo.Enrollment_dbo.Student_StudentID];
 
 
 GO

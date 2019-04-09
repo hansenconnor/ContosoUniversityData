@@ -40,47 +40,15 @@ USE [$(DatabaseName)];
 
 
 GO
-IF EXISTS (SELECT 1
-           FROM   [master].[dbo].[sysdatabases]
-           WHERE  [name] = N'$(DatabaseName)')
-    BEGIN
-        ALTER DATABASE [$(DatabaseName)]
-            SET ARITHABORT ON,
-                CONCAT_NULL_YIELDS_NULL ON,
-                CURSOR_DEFAULT LOCAL 
-            WITH ROLLBACK IMMEDIATE;
-    END
+PRINT N'Creating [dbo].[Course]...';
 
 
 GO
-IF EXISTS (SELECT 1
-           FROM   [master].[dbo].[sysdatabases]
-           WHERE  [name] = N'$(DatabaseName)')
-    BEGIN
-        ALTER DATABASE [$(DatabaseName)]
-            SET PAGE_VERIFY NONE,
-                DISABLE_BROKER 
-            WITH ROLLBACK IMMEDIATE;
-    END
-
-
-GO
-ALTER DATABASE [$(DatabaseName)]
-    SET TARGET_RECOVERY_TIME = 0 SECONDS 
-    WITH ROLLBACK IMMEDIATE;
-
-
-GO
-PRINT N'Creating [dbo].[Student]...';
-
-
-GO
-CREATE TABLE [dbo].[Student] (
-    [StudentID]      INT           IDENTITY (1, 1) NOT NULL,
-    [LastName]       NVARCHAR (50) NULL,
-    [FirstName]      NVARCHAR (50) NULL,
-    [EnrollmentDate] DATETIME      NULL,
-    PRIMARY KEY CLUSTERED ([StudentID] ASC)
+CREATE TABLE [dbo].[Course] (
+    [CourseID] INT           IDENTITY (1, 1) NOT NULL,
+    [Title]    NVARCHAR (50) NULL,
+    [Credits]  INT           NULL,
+    PRIMARY KEY CLUSTERED ([CourseID] ASC)
 );
 
 

@@ -1,0 +1,9 @@
+C:\Users\hanse174\Desktop\ContosoUniversityData\ContosoUniversityData\bin\Debug\ContosoUniversityData.dacpac
+C:\Users\hanse174\Desktop\ContosoUniversityData\ContosoUniversityData\bin\Debug\ContosoUniversityData.dll
+C:\Users\hanse174\Desktop\ContosoUniversityData\ContosoUniversityData\bin\Debug\ContosoUniversityData.pdb
+C:\Users\hanse174\Desktop\ContosoUniversityData\ContosoUniversityData\obj\Debug\Model.xml
+C:\Users\hanse174\Desktop\ContosoUniversityData\ContosoUniversityData\obj\Debug\refactor.xml
+C:\Users\hanse174\Desktop\ContosoUniversityData\ContosoUniversityData\obj\Debug\postdeploy.sql
+C:\Users\hanse174\Desktop\ContosoUniversityData\ContosoUniversityData\obj\Debug\predeploy.sql
+C:\Users\hanse174\Desktop\ContosoUniversityData\ContosoUniversityData\obj\Debug\ContosoUniversityData.dll
+C:\Users\hanse174\Desktop\ContosoUniversityData\ContosoUniversityData\obj\Debug\ContosoUniversityData.pdb
